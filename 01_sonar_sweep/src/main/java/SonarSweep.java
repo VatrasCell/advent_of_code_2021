@@ -10,7 +10,13 @@ public class SonarSweep {
 
     public static void main(String[] args) {
 
-        System.out.println(measureIncrement(readInputValuesToList("input.data")));
+        List<Integer> measurements = readInputValuesToList("input.data");
+
+        //first part
+        System.out.println(measureIncrement(measurements));
+
+        //second part
+        System.out.println(measureIncrement(getThreeMeasurementSlidingWindows(measurements)));
     }
 
     public static int measureIncrement(List<Integer> measurements) {
@@ -23,6 +29,15 @@ public class SonarSweep {
         }
 
         return incrementCount;
+    }
+
+    public static List<Integer> getThreeMeasurementSlidingWindows(List<Integer> measurements) {
+        List<Integer> windows = new ArrayList<>();
+        for (int i = 2; i < measurements.size(); ++i) {
+            windows.add(measurements.get(i - 2) + measurements.get(i - 1) + measurements.get(i));
+        }
+
+        return windows;
     }
 
     public static List<Integer> readInputValuesToList(String path) {
