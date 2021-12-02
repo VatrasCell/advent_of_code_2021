@@ -7,11 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SonarSweepTest {
 
+    final List<Integer> measurements = Arrays.asList(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);
+
     @Test
     void measureIncrement() {
-
-        //arrange
-        List<Integer> measurements = Arrays.asList(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);
 
         //act
         int result = SonarSweep.measureIncrement(measurements);
@@ -23,9 +22,6 @@ class SonarSweepTest {
     @Test
     void measureIncrementWithWindows() {
 
-        //arrange
-        List<Integer> measurements = Arrays.asList(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);
-
         //act
         int result = SonarSweep.measureIncrement(SonarSweep.getThreeMeasurementSlidingWindows(measurements));
 
@@ -35,9 +31,6 @@ class SonarSweepTest {
 
     @Test
     void readInputValuesToList() {
-
-        //arrange
-        List<Integer> measurements = Arrays.asList(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);
 
         //act
         List<Integer> result = SonarSweep.readInputValuesToList("test_input.data");
@@ -50,7 +43,6 @@ class SonarSweepTest {
     void getThreeMeasurementSlidingWindows() {
 
         //arrange
-        List<Integer> measurements = Arrays.asList(199, 200, 208, 210, 200, 207, 240, 269, 260, 263);
         List<Integer> windows = Arrays.asList(607, 618, 618, 617, 647, 716, 769, 792);
 
         //act

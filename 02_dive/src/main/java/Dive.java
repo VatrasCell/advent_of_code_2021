@@ -3,20 +3,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 public class Dive {
 
-    public static final String HORIZONTAL = "horizontal";
-    public static final String DEPTH = "depth";
-    public static final String AIM = "aim";
-
     public static void main(String[] args) {
 
-        //fist step
+        //first step
         System.out.println(multiplyResultsForStepOne("input.data"));
 
         //second step
@@ -31,25 +25,23 @@ public class Dive {
         return multiplyResults(calculateMovementStepTwo(readInputValuesToList(path)));
     }
 
-    public static int multiplyResults(Map<String, Integer> calculatedMovement) {
-        return calculatedMovement.get(HORIZONTAL) * calculatedMovement.get(DEPTH);
+    public static int multiplyResults(CalculatedMovement calculatedMovement) {
+        return calculatedMovement.getHorizontal() * calculatedMovement.getDepth();
     }
 
-    public static Map<String, Integer> calculateMovementStepOne(List<MoveCommand> moveCommands) {
-        Map<String, Integer> calculatedMovement = new HashMap<>();
-        calculatedMovement.put(HORIZONTAL, 0);
-        calculatedMovement.put(DEPTH, 0);
+    public static CalculatedMovement calculateMovementStepOne(List<MoveCommand> moveCommands) {
+        CalculatedMovement calculatedMovement = new CalculatedMovement();
 
         for (MoveCommand moveCommand : moveCommands) {
             switch (moveCommand.getMoveEnum()) {
                 case FORWARD:
-                    calculatedMovement.put(HORIZONTAL, calculatedMovement.get(HORIZONTAL) + moveCommand.getSteps());
+                    calculatedMovement.addHorizontal(moveCommand.getSteps());
                     break;
                 case DOWN:
-                    calculatedMovement.put(DEPTH, calculatedMovement.get(DEPTH) + moveCommand.getSteps());
+                    calculatedMovement.addDepth(moveCommand.getSteps());
                     break;
                 case UP:
-                    calculatedMovement.put(DEPTH, calculatedMovement.get(DEPTH) - moveCommand.getSteps());
+                    calculatedMovement.addDepth(-moveCommand.getSteps());
                     break;
             }
         }
@@ -57,24 +49,20 @@ public class Dive {
         return calculatedMovement;
     }
 
-    public static Map<String, Integer> calculateMovementStepTwo(List<MoveCommand> moveCommands) {
-        Map<String, Integer> calculatedMovement = new HashMap<>();
-        calculatedMovement.put(HORIZONTAL, 0);
-        calculatedMovement.put(DEPTH, 0);
-        calculatedMovement.put(AIM, 0);
+    public static CalculatedMovement calculateMovementStepTwo(List<MoveCommand> moveCommands) {
+        CalculatedMovement calculatedMovement = new CalculatedMovement();
 
         for (MoveCommand moveCommand : moveCommands) {
             switch (moveCommand.getMoveEnum()) {
                 case FORWARD:
-                    calculatedMovement.put(HORIZONTAL, calculatedMovement.get(HORIZONTAL) + moveCommand.getSteps());
-                    calculatedMovement.put(DEPTH, calculatedMovement.get(DEPTH) +
-                            (calculatedMovement.get(AIM) * moveCommand.getSteps()));
+                    calculatedMovement.addHorizontal(moveCommand.getSteps());
+                    calculatedMovement.addDepth(calculatedMovement.getAim() * moveCommand.getSteps());
                     break;
                 case DOWN:
-                    calculatedMovement.put(AIM, calculatedMovement.get(AIM) + moveCommand.getSteps());
+                    calculatedMovement.addAim(moveCommand.getSteps());
                     break;
                 case UP:
-                    calculatedMovement.put(AIM, calculatedMovement.get(AIM) - moveCommand.getSteps());
+                    calculatedMovement.addAim(-moveCommand.getSteps());
                     break;
             }
         }
