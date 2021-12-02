@@ -11,6 +11,7 @@
 
     <modules>
         <module>01_sonar_sweep</module>
+        <module>02_dive</module>
     </modules>
 
     <properties>
