@@ -12,6 +12,7 @@
     <modules>
         <module>01_sonar_sweep</module>
         <module>02_dive</module>
+        <module>03_binary_diagnostic</module>
     </modules>
 
     <properties>
