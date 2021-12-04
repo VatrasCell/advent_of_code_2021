@@ -9,6 +9,7 @@ public class BingoBoard {
 
     private final int[][] hits = new int[5][5];
     private List<List<Integer>> board = new ArrayList<>();
+    private boolean isBingo = false;
 
     public BingoBoard(List<List<Integer>> board) {
         this.board = board;
@@ -23,6 +24,14 @@ public class BingoBoard {
 
     public int[][] getHits() {
         return hits;
+    }
+
+    public boolean isBingo() {
+        return isBingo;
+    }
+
+    public void setBingo(boolean bingo) {
+        isBingo = bingo;
     }
 
     public void addLine(String line) {

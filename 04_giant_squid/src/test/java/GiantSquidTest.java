@@ -40,4 +40,13 @@ class GiantSquidTest {
         //assert
         assertEquals(4512, result);
     }
+
+    @Test
+    void playBingoBad() {
+        //act
+        int result = GiantSquid.playBingoBad("test_input.data");
+
+        //assert
+        assertEquals(1924, result);
+    }
 }

@@ -14,6 +14,9 @@ public class GiantSquid {
 
         //first step
         System.out.println(playBingo("input.data"));
+
+        //second step
+        System.out.println(playBingoBad("input.data"));
     }
 
     public static int playBingo(String path) {
@@ -25,6 +28,29 @@ public class GiantSquid {
                 if (bingoBoard.isBingo(number)) {
                     return bingoBoard.getSumOfAllUnmarkedNumbers() * number;
                 }
+            }
+        }
+
+        return -1;
+    }
+
+    public static int playBingoBad(String path) {
+        List<Integer> numbers = readInputValuesToList(path);
+        List<BingoBoard> bingoBoards = readInputValuesToBingoBoard(path);
+        int winCount = 0;
+
+        for (int number : numbers) {
+            for (BingoBoard bingoBoard : bingoBoards) {
+                if (!bingoBoard.isBingo()) {
+                    if (bingoBoard.isBingo(number)) {
+                        bingoBoard.setBingo(true);
+                        ++winCount;
+                        if (winCount == bingoBoards.size()) {
+                            return bingoBoard.getSumOfAllUnmarkedNumbers() * number;
+                        }
+                    }
+                }
+
             }
         }
 
