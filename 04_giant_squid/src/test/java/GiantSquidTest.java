@@ -22,10 +22,10 @@ class GiantSquidTest {
     }
 
     @Test
-    void readInputValuesToBingoBoard() {
+    void readInputValuesToBingoBoardList() {
 
         //act
-        List<BingoBoard> result = GiantSquid.readInputValuesToBingoBoard("test_input.data");
+        List<BingoBoard> result = GiantSquid.readInputValuesToBingoBoardList("test_input.data");
 
         //assert
         assertEquals(3, result.size());

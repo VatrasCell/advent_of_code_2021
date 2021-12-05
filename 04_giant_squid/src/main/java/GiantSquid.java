@@ -21,7 +21,7 @@ public class GiantSquid {
 
     public static int playBingo(String path) {
         List<Integer> numbers = readInputValuesToList(path);
-        List<BingoBoard> bingoBoards = readInputValuesToBingoBoard(path);
+        List<BingoBoard> bingoBoards = readInputValuesToBingoBoardList(path);
 
         for (int number : numbers) {
             for (BingoBoard bingoBoard : bingoBoards) {
@@ -36,7 +36,7 @@ public class GiantSquid {
 
     public static int playBingoBad(String path) {
         List<Integer> numbers = readInputValuesToList(path);
-        List<BingoBoard> bingoBoards = readInputValuesToBingoBoard(path);
+        List<BingoBoard> bingoBoards = readInputValuesToBingoBoardList(path);
         int winCount = 0;
 
         for (int number : numbers) {
@@ -69,7 +69,7 @@ public class GiantSquid {
         return numbers;
     }
 
-    public static List<BingoBoard> readInputValuesToBingoBoard(String path) {
+    public static List<BingoBoard> readInputValuesToBingoBoardList(String path) {
         List<BingoBoard> bingoBoards = new ArrayList<>();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(getURL(path).getFile()))) {
