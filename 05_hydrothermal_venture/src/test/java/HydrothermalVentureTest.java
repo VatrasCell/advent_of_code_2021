@@ -45,4 +45,19 @@ class HydrothermalVentureTest {
         //assert
         assertEquals(5, result);
     }
+
+    @Test
+    void getDangerousAreasCountWithDiagonals() {
+
+        //arrange
+        List<Vent> vents = HydrothermalVenture.readInputValuesToList("test_input.data");
+        HydrothermalField field = new HydrothermalField(vents, 10);
+        field.mapVentsOnField(true);
+
+        //act
+        int result = field.getDangerousAreasCount();
+
+        //assert
+        assertEquals(12, result);
+    }
 }

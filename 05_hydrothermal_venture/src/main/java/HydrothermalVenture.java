@@ -15,6 +15,12 @@ public class HydrothermalVenture {
         HydrothermalField field = new HydrothermalField(vents, 1000);
         field.mapVentsOnField(false);
         System.out.println(field.getDangerousAreasCount());
+
+        //first second
+        vents = readInputValuesToList("input.data");
+        field = new HydrothermalField(vents, 1000);
+        field.mapVentsOnField(true);
+        System.out.println(field.getDangerousAreasCount());
     }
 
     public static List<Vent> readInputValuesToList(String path) {
