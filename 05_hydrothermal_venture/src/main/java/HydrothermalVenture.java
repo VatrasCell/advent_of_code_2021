@@ -16,7 +16,7 @@ public class HydrothermalVenture {
         field.mapVentsOnField(false);
         System.out.println(field.getDangerousAreasCount());
 
-        //first second
+        //second step
         vents = readInputValuesToList("input.data");
         field = new HydrothermalField(vents, 1000);
         field.mapVentsOnField(true);
