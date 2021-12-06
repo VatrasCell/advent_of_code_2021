@@ -39,6 +39,20 @@ class LanternfishTest {
     }
 
     @Test
+    void processLifeCycleFast() {
+
+        //assert
+        List<Integer> lanternfishs = new LinkedList<>(Arrays.asList(3, 4, 3, 1, 2));
+
+        //act
+        long result = Lanternfish.processLifeCycleFast(lanternfishs, 256);
+
+        //assert
+        assertEquals(26984457539L, result);
+
+    }
+
+    @Test
     void readInputValuesToList() {
 
         //assert
