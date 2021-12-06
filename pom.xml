@@ -15,6 +15,7 @@
         <module>03_binary_diagnostic</module>
         <module>04_giant_squid</module>
         <module>05_hydrothermal_venture</module>
+        <module>06_lanternfish</module>
     </modules>
 
     <properties>
