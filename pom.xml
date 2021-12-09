@@ -17,6 +17,7 @@
         <module>05_hydrothermal_venture</module>
         <module>06_lanternfish</module>
         <module>07_the_treachery_of_whales</module>
+        <module>09_smoke_basin</module>
     </modules>
 
     <properties>
